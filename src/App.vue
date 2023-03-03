@@ -1,47 +1,53 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script>
+export default {
+  data() {
+    return {
+      contador: 0
+    }
+  },
+  methods: {
+    incrementarContador() {
+      this.contador++
+    },
+    decrementarContador() {
+      this.contador--
+    }
+  },
+  mounted() {
+    console.log(`O valor inicial do contador é ${this.contador}.`)
+  }
+}
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+    <!-- Template já apresentada -->
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+/* Estilos já apresentados */
+</style>
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const contador = ref(0)
+
+function incrementarContador() {
+  contador.value++
+}
+function decrementarContador() {
+  contador.value--
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
+onMounted(() => {
+  console.log(`O valor inicial do contador é ${contador.value}.`)
+})
+</script>
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+<template>
+  <!-- Template já apresentada -->
+</template>
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-}
+<style scoped>
+/* Estilos já apresentados */
 </style>
