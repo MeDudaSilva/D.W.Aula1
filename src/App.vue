@@ -1,53 +1,40 @@
 <script>
 export default {
-  data() {
-    return {
-      contador: 0
+  data(){
+    return{
+      contador: 10
     }
   },
   methods: {
-    incrementarContador() {
+    incrementar(){
       this.contador++
     },
-    decrementarContador() {
+    decrementar(){
+      if(this.contador > 0)
       this.contador--
     }
   },
-  mounted() {
-    console.log(`O valor inicial do contador é ${this.contador}.`)
+  resetar(){
+    this.contador = 0
   }
 }
 </script>
 
 <template>
-    <!-- Template já apresentada -->
+  <button @click="incrementar">+</button>
+  <button @click="decrementar">-</button>
+  <button @click="resetar">C</button>
+  <p>Valor do contador: {{ contador }}</p>
 </template>
 
 <style scoped>
-/* Estilos já apresentados */
-</style>
-<script setup>
-import { ref, onMounted } from 'vue'
-
-const contador = ref(0)
-
-function incrementarContador() {
-  contador.value++
+button {
+  margin-left: 10px;
+  background-color: rgb(22, 86, 214);
+  color: aliceblue;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
 }
-function decrementarContador() {
-  contador.value--
-}
-
-onMounted(() => {
-  console.log(`O valor inicial do contador é ${contador.value}.`)
-})
-</script>
-
-
-<template>
-  <!-- Template já apresentada -->
-</template>
-
-<style scoped>
-/* Estilos já apresentados */
 </style>
